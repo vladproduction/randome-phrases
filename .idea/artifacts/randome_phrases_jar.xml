@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="randome-phrases:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/randome_phrases_jar</output-path>
+    <root id="archive" name="randome-phrases.jar">
+      <element id="module-output" name="randome-phrases" />
+    </root>
+  </artifact>
+</component>

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Main {
-    private static final List<String> PHRASES = List.of(
+    static final List<String> PHRASES = List.of(
             "Every setback is a setup for a comeback.",
             "Success is not final, failure is not fatal: It is the courage to continue that counts.",
             "Your only limit is you. Be brave and fearless.",
@@ -22,11 +22,7 @@ public class Main {
 
 
         while (true){
-            String phrase = PHRASES.get(RANDOM.nextInt(PHRASES.size()));
-            LocalTime time = LocalTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-            String formattedTime = time.format(formatter);
-            System.out.println(formattedTime + " : " + phrase);
+            printRandomPhrase();
             try{
                 Thread.sleep(3000);
             }catch (InterruptedException e){
@@ -34,6 +30,14 @@ public class Main {
             }
         }
     }
- }
+
+    static void printRandomPhrase() {
+        String phrase = PHRASES.get(RANDOM.nextInt(PHRASES.size()));
+        LocalTime time = LocalTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String formattedTime = time.format(formatter);
+        System.out.println(formattedTime + " : " + phrase);
+    }
+}
 
 

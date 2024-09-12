@@ -13,7 +13,8 @@ public class Main {
             "Challenges are what make life interesting; overcoming them is what makes life meaningful.",
             "It does not matter how slowly you go as long as you do not stop.",
             "The moment you’re ready to quit is usually the moment right before the miracle happens.",
-            "Keep going. Each step may get harder, but don’t stop. The view is beautiful at the top."
+            "Keep going. Each step may get harder, but don’t stop. The view is beautiful at the top.",
+            "Never give up!"
     );
 
     private static final Random RANDOM = new Random();

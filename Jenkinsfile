@@ -11,19 +11,25 @@ pipeline {
             }
         }
 
-        stage('Stage#2: Checkout') {
+        stage('Stage#2: clean install') {
+                    steps {
+                        script {
+                            bat './mvnw.cmd clean install'
+                        }
+                    }
+                }
+
+        stage('Stage#3: package') {
             steps {
                 script {
-                    // Checkout the repository
-                    checkout([$class: 'GitSCM',
-                        branches: [[name: '*/main']],
-                        userRemoteConfigs: [[url: 'https://github.com/vladproduction/randome-phrases']]
-                    ])
+                    bat './mvnw.cmd package'
                 }
             }
         }
 
-        stage('Stage#3: List Files After Checkout') {
+
+
+        stage('Stage#4: List Files After Checkout') {
             steps {
                 script {
                    bat 'dir'

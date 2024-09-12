@@ -3,7 +3,7 @@ pipeline {
 
     stages {
 
-        stage('Stage#1: List Files Before Checkout') {
+        stage('Stage#1: List Files Before package') {
             steps {
                 script {
                     bat 'dir'
@@ -29,13 +29,21 @@ pipeline {
 
 
 
-        stage('Stage#4: List Files After Checkout') {
+        stage('Stage#4: List Files After package') {
             steps {
                 script {
                    bat 'dir'
                 }
             }
         }
+
+        stage('Stage#5: Capture') {
+                    steps {
+                        archiveArtifacts '**/target/*.jar'
+                        jacoco()
+                        junit '**/target/surefire-reports/TEST*.xml'
+                    }
+                }
 
     }
 }

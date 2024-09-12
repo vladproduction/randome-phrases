@@ -62,25 +62,25 @@ pipeline {
         }
     }
 
-//     post {
-//             success {
-//                 // Notify the user of a successful build and image push
-//                 script {
-//                     mail to: 'vproductionsd@gmail.com',
-//                          subject: "Jenkins Build Successful: ${currentBuild.fullDisplayName}",
-//                          body: "The Docker image was successfully built and pushed to Docker Hub."
-//                 }
-//             }
-//
-//             failure {
-//                 // Notify the user of a failed build
-//                 script {
-//                     mail to: 'vproductionsd@gmail.com',
-//                          subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
-//                          body: "The Jenkins build has failed. Please check the console output."
-//                 }
-//             }
-//     }
+    post {
+            success {
+                // Notify the user of a successful build and image push
+                script {
+                    mail to: 'vproductionsd@gmail.com',
+                         subject: "Jenkins Build Successful: ${currentBuild.fullDisplayName}",
+                         body: "The Docker image was successfully built and pushed to Docker Hub."
+                }
+            }
+
+            failure {
+                // Notify the user of a failed build
+                script {
+                    mail to: 'vproductionsd@gmail.com',
+                         subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
+                         body: "The Jenkins build has failed. Please check the console output."
+                }
+            }
+    }
 
 
 }

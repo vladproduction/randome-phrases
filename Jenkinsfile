@@ -62,25 +62,20 @@ pipeline {
         }
     }
 
+    //post email imitation:
     post {
-            success {
-                // Notify the user of a successful build and image push
+            always {
                 script {
-                    mail to: 'vproductionsd@gmail.com',
-                         subject: "Jenkins Build Successful: ${currentBuild.fullDisplayName}",
-                         body: "The Docker image was successfully built and pushed to Docker Hub."
+                    emailext(
+                        body: "${env.BUILD_URL}\n${currentBuild.absoluteUrl}",
+                        to: 'always@foo.bar',
+                        recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'CulpritsRecipientProvider']],
+                        subject: "${currentBuild.currentResult}: Job ${env.JOB_NAME} [${env.BUILD_NUMBER}]"
+                    )
                 }
             }
+        }
 
-            failure {
-                // Notify the user of a failed build
-                script {
-                    mail to: 'vproductionsd@gmail.com',
-                         subject: "Jenkins Build Failed: ${currentBuild.fullDisplayName}",
-                         body: "The Jenkins build has failed. Please check the console output."
-                }
-            }
-    }
 
 
 }

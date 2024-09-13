@@ -71,6 +71,14 @@ pipeline {
                   }
              }
         }
+
+        stage('Stage#9: compose up emailext') {
+                     steps {
+                         script {
+                               bat 'docker compose up'
+                          }
+                     }
+                }
     }
 
     //post email imitation:

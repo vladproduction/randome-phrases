@@ -45,7 +45,7 @@ pipeline {
              steps {
                   script {
                       // we have a Dockerfile in the root of repository
-                      bat 'docker build -t vladbogdadocker/phrases:latest .'
+                      bat 'docker build -t vladbogdadocker/phrases:%BUILD_NUMBER% .'
                   }
              }
         }
@@ -56,7 +56,7 @@ pipeline {
                        // Login to Docker Hub
                        //bat 'echo "%DOCKER_PASSWORD%" | docker login -u "%DOCKER_USERNAME%" --password-stdin'
                        // Push the latest image
-                       bat 'docker push vladbogdadocker/phrases:latest'
+                       bat 'docker push vladbogdadocker/phrases:%BUILD_NUMBER%'
                   }
              }
         }

@@ -60,6 +60,17 @@ pipeline {
                   }
              }
         }
+
+        stage('Stage#8: Push Image to Docker Hub as latest') {
+             steps {
+                 script {
+                       bat 'docker tag vladbogdadocker/phrases:%BUILD_NUMBER% vladbogdadocker/phrases:latest'
+                  }
+                 script {
+                       bat 'docker push vladbogdadocker/phrases:latest'
+                  }
+             }
+        }
     }
 
     //post email imitation:

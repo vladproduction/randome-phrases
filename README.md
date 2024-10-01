@@ -1,3 +1,5 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/HgRWmk5654SqWSuy97pbDS/XrTC76pzDGhk2y8VpFUJuB/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/HgRWmk5654SqWSuy97pbDS/XrTC76pzDGhk2y8VpFUJuB/tree/main)
+
 # random-phrases
 **project associated to Docker and Jenkins**
 
